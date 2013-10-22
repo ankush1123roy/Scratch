@@ -60,6 +60,6 @@ def L2Loss(X,Y,w,b):
 	loss = loss / size(X,1);
 	return loss
 
-if __init__ = '__main__':
+if __init__ == '__main__':
 (w,b,loss) = learn_stable_Op(Xtrain,Ytrain)
 
