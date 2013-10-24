@@ -15,15 +15,16 @@ def learn_stable_Op(Xtrain,Ytrain):
     		Xcat = []
     		Ycat = []
     		for i in range(Xtrain.shape[0]):
-        		Xcat = cat(1,Xcat,Xtrain(i,:))
-        		Ycat = cat(1,Ycat,Ytrain((i-1)*num_actions + k,:))
+        		Xcat = Xcat.append(Xtrain[i,:]) # Check indexing here with demo input 
+			YT = Ytrain[(i-1)*num_actions + k,:]
+        		Ycat = Ycat.append(YT)
 
-    		weights((k-1)*d + 1 : k*d, :) = Ycat'*pinv(Xcat')
+    		weights[(k-1)*d + 1 : k*d, :] = Ycat'*pinv(Xcat')
     		(u,s,v) = numpy.linalg.svd(weights((k-1)*d + 1 : k*d, :),1,full_matrices = True)
     		print('top singular value = %f\n',s)                                                                                                                                        
-    		tmp = u*v'
+    		tmp = numpy.dot(u,numpy.transpose(v))
     		ebar = tmp.flattent(:).T
-    		G = [G;ebar']
+    		G = [G;numpy.transpose(ebar)]
     		h = [h;1]
 	
 	for i in range(15):
