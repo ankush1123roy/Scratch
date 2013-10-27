@@ -2,32 +2,24 @@ import numpy
 from copy import deepcopy
 from numpy import matrix as MA
 def knnsearch(varargin):
-    # Check inputs
     (Q,R,K,fident) = parseinputs(varargin{:})
-    # Check outputs
     error(nargoutchk(0,2,nargout))
-    [N,M] = size(Q)
-    L=size(R,1)
-    if M !=R.shape[1]:  # added by kiana
+    N,M = Q.shape[0] Q.shape[1]
+    L = R.shape[0]
+    if M !=R.shape[1]:
         print ('Index exceeds matrix Dimensions .. ')
         return
     idx = numpy.zeros((N,K),dt4)
     D = idx
     if K==1:
-        % Loop for each query point
-
         for k in range(1,N+1):
             d=numpy.zeros((L,1),dt4)
-            
             for t in range(1,M+1):
                 d=d+(R(:,t)-Q(k,t)).^2 # This loop ends here
             if fident:
                 d[k]=inf
 
             [D(k),idx(k)]=min(d)
-
-
-
     else:
         for k in range(1,N+1):
             d=numpy.zeros((L,1),dt4)
@@ -46,11 +38,7 @@ def knnsearch(varargin):
     if nargout>1:
         D=numpy.sqrt(D)
 
-
-
 def parseinputs(varargin):
-
-    #Check input and output
     error(nargchk(1,3,nargin));
     Q=varargin{1};
     if nargin<2:
@@ -73,8 +61,3 @@ def parseinputs(varargin):
         K=varargin{3}
 
 return Q,R,K,fident
-
-if __name__ = '__main_':
-    
-# Check the return of KNN
-

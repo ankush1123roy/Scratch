@@ -1,10 +1,8 @@
 import random
 import numpy
 from numpy import matrix as MA
+from knnsearch import knnsearch
 def  search_graph(query, nodes, DS, K):
-# nodes: the knn-graph as a nxk matrix
-# DS: dataset
-# K: the number of nearest neighbors to be returned
     random.seed(100)
     k = nodes.shape[1]
     depth = 0
