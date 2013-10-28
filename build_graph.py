@@ -8,19 +8,23 @@ def  build_graph(X, k):
     dt = numpy.dtype('f8')
     f=[]
     nodes = numpy.zeros((X.shape[1],k),dt);
-    for i in range(1,X.shape[0]):
-        print i
+    i = 0
+    while i <= X.shape[0]:
+#        print i
         query = MA(X[(i-1),0:],dt)
         (nns_inds, nns_dists) = knnsearch(query,X,k+1)
         I  = 0 
         f = []
+#        import pdb;pdb.set_trace()
         while I < len(nns_inds):
             if nns_inds[I] == i-1:
                 nns_inds.remove(i-1)
-                nodes[i,0:] = nns_inds
+                print i
+                nodes[i-1,0:] = nns_inds
                 break            
             else:
                 I += 1
+        i += 1
     print nodes
     return nodes
 

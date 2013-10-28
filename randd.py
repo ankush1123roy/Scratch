@@ -13,11 +13,11 @@ def randd(lb, up, number):
 
     a,b=lb,up
     n=1
-    ind = math.floor(a + (b-a).* random.random())
+    ind = math.floor(a + (b-a)* random.random())
     while n < number:
-        r = floor(a + (b-a).*rand(1,1))
-        if  isempty(find(ind==r))  #any(ind==r):
-            ind = [ind r]
+        r = floor(a + (b-a)*random.random())
+        if  isempty(find(ind==r)):  #any(ind==r):
+            ind = numpy.hstack([ind,r])
             n=n+1
     print ind
     return ind
