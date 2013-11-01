@@ -1,5 +1,6 @@
 """ Original Matlab Code by Kiana Hajebi 
-Changed to Python by Ankush Roy. This works for K = 1"""
+Changed to Python by Ankush Roy. k >> 1 . 
+K = 1 makes it very disconnected"""
 from knnsearch import knnsearch
 import random
 import numpy
