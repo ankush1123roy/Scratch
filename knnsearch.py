@@ -1,3 +1,5 @@
+""" Author: Ankush Roy. Change the O(n) search to O(log n)
+
 import math
 import numpy
 from numpy import matrix as MA
