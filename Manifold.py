@@ -1,5 +1,5 @@
 # Author: ankush2@ualberta.ca
-
+# Write the solver also
 import numpy
 from numpy import matrix as MA
 from numpy import linalg
